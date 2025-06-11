@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const path = require("path");
+const hbs = require("hbs");
 const rootDirectory = require("./utils/pathCreate");
 
 const adminRouter = require("./routes/admin");
@@ -19,7 +20,8 @@ app.use(express.static(path.join(rootDirectory, "public")));
 
 // HandleBars
 app.set("view engine", "hbs");
-app.set("views", path.join(rootDirectory, "views"));
+app.set("views", path.join(rootDirectory, "views", "hbs"));
+hbs.registerPartials(path.join(__dirname, "views", "layouts", "main"));
 
 //Routes
 app.get("/favicon.ico", (req, res) => res.status(204).end());
