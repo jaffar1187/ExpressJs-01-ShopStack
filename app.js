@@ -21,7 +21,7 @@ app.use(express.static(path.join(rootDirectory, "public")));
 // HandleBars
 app.set("view engine", "hbs");
 app.set("views", path.join(rootDirectory, "views", "hbs"));
-hbs.registerPartials(path.join(__dirname, "views", "layouts", "main"));
+hbs.registerPartials(path.join(rootDirectory, "views", "partials"));
 
 //Routes
 app.get("/favicon.ico", (req, res) => res.status(204).end());
