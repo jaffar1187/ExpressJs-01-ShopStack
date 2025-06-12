@@ -12,7 +12,7 @@ router.get("/", (req, res, next) => {
     docTitle: "Shop",
     hasProducts: products.length,
     activeShop: true,
-    productCss: true,
+    productCSS: true,
   });
 });
 

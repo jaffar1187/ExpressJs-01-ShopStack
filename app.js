@@ -11,6 +11,8 @@ const router404 = require("./routes/404");
 
 //Body parser
 app.use(bodyParser.urlencoded({ extended: false }));
+
+//Serve Static CSS files
 app.use(express.static(path.join(rootDirectory, "public")));
 
 //Template Engine
@@ -19,9 +21,13 @@ app.use(express.static(path.join(rootDirectory, "public")));
 // app.set("views", path.join(rootDirectory, "views"));
 
 // HandleBars
-app.set("view engine", "hbs");
-app.set("views", path.join(rootDirectory, "views", "hbs"));
-hbs.registerPartials(path.join(rootDirectory, "views", "partials"));
+// app.set("view engine", "hbs");
+// app.set("views", path.join(rootDirectory, "views", "hbs"));
+// hbs.registerPartials(path.join(rootDirectory, "views", "partials"));
+
+//EJS
+app.set("view engine", "ejs");
+app.set("views", path.join(rootDirectory, "views", "ejs"));
 
 //Routes
 app.get("/favicon.ico", (req, res) => res.status(204).end());
