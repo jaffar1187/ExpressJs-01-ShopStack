@@ -31,7 +31,7 @@ app.set("views", path.join(rootDirectory, "views", "ejs"));
 
 //Routes
 app.get("/favicon.ico", (req, res) => res.status(204).end());
-app.use("/admin", adminRouter.router);
+app.use("/admin", adminRouter);
 app.use(shopRouter); // --> / or without / this works
 
 //404 Page
